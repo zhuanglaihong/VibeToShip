@@ -1,0 +1,25 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "",
+  "pdfExportImageOCR": false,
+  "pdfExportImageQuality": 75,
+  "citeFormats": [
+    {
+      "name": "Cite",
+      "format": "template",
+      "template": "{{citation}}"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Import #1",
+      "outputPathTemplate": "references/{{citekey}}.md",
+      "imageOutputPathTemplate": "references/images/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "",
+      "cslStyle": ""
+    }
+  ],
+  "shouldConcat": false,
+  "vaultPath": ""
+}
