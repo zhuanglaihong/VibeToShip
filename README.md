@@ -228,28 +228,30 @@ README.md
 
 ## 🔧 配套 Skill
 
-Vault 自带 **16 个通用工程 skill**，与 prompt 深度配套。在真实项目中反复打磨，开箱即用。
+Vault 自带 **16 个通用工程 skill**，与 prompt 深度配套。
 
-| Skill | 用途 | 对应 prompt |
-|-------|------|------------|
-| [`writing-plans`](skills/writing-plans/SKILL.md) | 拆解实现计划，生成独立 commit 清单 | 02-计划拆解 |
-| [`diagnose`](skills/diagnose/SKILL.md) | 系统化复现 → 定位 → 修复 Bug | 05-最终验收 |
-| [`review`](skills/review/SKILL.md) | 代码审查清单：正确性、安全、性能、覆盖 | 04-代码审查 |
-| [`refactor`](skills/refactor/SKILL.md) | 安全重构方案生成，行为不变 | 07-代码重构 |
-| [`find-skill`](skills/find-skill/SKILL.md) | 根据关键词发现合适的 skill / rule | 00-任务分流 |
-| [`design-an-interface`](skills/design-an-interface/SKILL.md) | 并行生成多种接口设计方案 | 02-计划拆解 |
-| [`request-refactor-plan`](skills/request-refactor-plan/SKILL.md) | 重构 RFC，拆成小 commit | 07-代码重构 |
-| [`caveman`](skills/caveman/SKILL.md) | 极简通信模式，token 消耗降低 ~75% | 全局 |
-| [`qa`](skills/qa/SKILL.md) | 交互式 Bug 上报与 GitHub Issue 归档 | 11-复盘改进 |
-| [`zoom-out`](skills/zoom-out/SKILL.md) | 不熟悉代码时获取高层视角 | 全局 |
-| [`ubiquitous-language`](skills/ubiquitous-language/SKILL.md) | DDD 通用语言提取，统一团队术语 | 01-需求夯实 |
-| [`api-docs`](skills/api-docs/SKILL.md) | API 文档标准与格式约定 | 10-PR收尾 |
-| [`docs`](skills/docs/SKILL.md) | 代码 → 文档同步工作流 | 10-PR收尾 |
-| [`readme`](skills/readme/SKILL.md) | README 维护标准 | 项目维护 |
-| [`git-guardrails-claude-code`](skills/git-guardrails-claude-code/SKILL.md) | 拦截危险 git 命令（push --force 等） | 全局 |
-| [`setup-pre-commit`](skills/setup-pre-commit/SKILL.md) | Husky pre-commit hooks 一键配置 | 项目初始化 |
+> ⚠️ **注意：** 标 📝 的 skill 为通用模板，需结合你的项目做微调（如替换业务术语、端口号、文件路径等）。标 ✅ 的开箱即用。
 
-所有 skill 位于 `skills/` 目录，可直接复制到你的项目中使用。
+| Skill | 用途 | 对应 prompt | 状态 |
+|-------|------|------------|------|
+| [`writing-plans`](skills/writing-plans/SKILL.md) | 拆解实现计划，生成独立 commit 清单 | 02-计划拆解 | ✅ |
+| [`diagnose`](skills/diagnose/SKILL.md) | 系统化复现 → 定位 → 修复 Bug | 05-最终验收 | ✅ |
+| [`review`](skills/review/SKILL.md) | 代码审查清单：正确性、安全、性能、覆盖 | 04-代码审查 | ✅ |
+| [`refactor`](skills/refactor/SKILL.md) | 安全重构方案生成，行为不变 | 07-代码重构 | ✅ |
+| [`find-skill`](skills/find-skill/SKILL.md) | 根据关键词发现合适的 skill / rule | 00-任务分流 | ✅ |
+| [`design-an-interface`](skills/design-an-interface/SKILL.md) | 并行生成多种接口设计方案 | 02-计划拆解 | ✅ |
+| [`request-refactor-plan`](skills/request-refactor-plan/SKILL.md) | 重构 RFC，拆成小 commit | 07-代码重构 | ✅ |
+| [`caveman`](skills/caveman/SKILL.md) | 极简通信模式，token 消耗降低 ~75% | 全局 | ✅ |
+| [`qa`](skills/qa/SKILL.md) | 交互式 Bug 上报与 GitHub Issue 归档 | 11-复盘改进 | ✅ |
+| [`zoom-out`](skills/zoom-out/SKILL.md) | 不熟悉代码时获取高层视角 | 全局 | ✅ |
+| [`git-guardrails-claude-code`](skills/git-guardrails-claude-code/SKILL.md) | 拦截危险 git 命令（push --force 等） | 全局 | ✅ |
+| [`setup-pre-commit`](skills/setup-pre-commit/SKILL.md) | Husky pre-commit hooks 一键配置 | 项目初始化 | ✅ |
+| [`ubiquitous-language`](skills/ubiquitous-language/SKILL.md) | DDD 通用语言提取，统一团队术语 | 01-需求夯实 | 📝 |
+| [`api-docs`](skills/api-docs/SKILL.md) | API 文档标准与格式约定 | 10-PR收尾 | 📝 |
+| [`docs`](skills/docs/SKILL.md) | 代码 → 文档同步工作流 | 10-PR收尾 | 📝 |
+| [`readme`](skills/readme/SKILL.md) | README 维护标准 | 项目维护 | 📝 |
+
+所有 skill 位于 `skills/` 目录，可直接复制到你的项目中使用。📝 类 skill 建议先替换其中的占位路径和业务关键词再投入使用。
 
 > 💡 此外推荐安装 Matt Pocock 的公共 skill（grill-me、tdd、handoff、to-issues、to-prd、triage 等）：
 > ```bash
