@@ -84,7 +84,7 @@ git clone https://gitcode.com/skyveo/obsidian-vault.git
 npx skills@latest add mattpocock/skills
 ```
 
-> 详见 `软件工程/rules/能力入口索引-skill-entry-index.md`
+> 详见 `playbook/rules/能力入口索引-skill-entry-index.md`
 
 ---
 
@@ -178,42 +178,46 @@ AI 会判断 → 进入 `01-需求夯实` → 追问边界 → 明确后进入 `
 ## 📦 项目结构
 
 ```
-软件工程/
-├── prompts/                    ← 核心：每个阶段的 prompt
-│   ├── 00-任务分流-router.md           ← 入口，不知道从哪开始先看这个
-│   ├── 01-需求夯实-grill-me.md
-│   ├── 02-计划拆解-writing-plans.md
-│   ├── 03-TDD实现-tdd-hub.md
-│   ├── 04-代码审查-code-review.md
-│   ├── 05-最终验收-diagnose.md
-│   ├── 06-紧急修复-hotfix.md
-│   ├── 07-代码重构-refactor.md
-│   ├── 08-新项目脚手架-new-project.md
-│   ├── 09-任务交接-handoff.md
+playbook/                       ← 工程方法论核心
+│
+├── prompts/                    ← 提示词：12 个阶段 + 团队规范，每个文件标注模型、下一步
+│   ├── 00-任务分流-router.md           ← 入口：不知道该干什么，先来这里
+│   ├── 01-需求夯实-grill-me.md         ← AI 反问，把模糊需求问清楚
+│   ├── 02-计划拆解-writing-plans.md    ← 拆成独立 commit，逐个击破
+│   ├── 03-TDD实现-tdd-hub.md           ← Red → Green → Refactor
+│   ├── 04-代码审查-code-review.md      ← 正确性 · 安全 · 性能 · 覆盖
+│   ├── 05-最终验收-diagnose.md         ← 全链路验证
+│   ├── 06-紧急修复-hotfix.md           ← 线上故障，先止血再复盘
+│   ├── 07-代码重构-refactor.md         ← 行为不变，只清理结构
+│   ├── 08-新项目脚手架-new-project.md  ← 从 0 到 1
+│   ├── 09-任务交接-handoff.md          ← 做到一半转交他人
 │   ├── 10-PR合并收尾-pr-merge-closeout.md
 │   ├── 11-复盘流程改进-retro.md
 │   ├── 12-外部依赖环境排障-env-troubleshooting.md
 │   └── rules-team.md                    ← 团队共享规范
 │
-├── rules/                      ← 工程规范
+├── rules/                      ← 工程规范：模型的、Git 的、编码的、协作的
 │   ├── 能力入口索引-skill-entry-index.md  ← 三端 skill 统一管理
-│   ├── 模型分工-model-roles.md
-│   ├── Git规范-git-convention.md
-│   ├── 编码规范-python-style.md
-│   ├── 失败处理规则-failure-handling.md
-│   └── 文档同步矩阵-doc-sync-matrix.md
+│   ├── 模型分工-model-roles.md            ← 推理模型 vs 执行模型
+│   ├── Git规范-git-convention.md          ← commit 格式、分支管理
+│   ├── 编码规范-python-style.md           ← 代码风格约定
+│   ├── 失败处理规则-failure-handling.md   ← 异常处理策略
+│   └── 文档同步矩阵-doc-sync-matrix.md    ← 代码变更 → 文档同步
 │
-└── specs/                      ← 质量门禁 + 设计模板
+└── specs/                      ← 质量标准 + 设计模板
     ├── quality/
-    │   ├── 完成定义-definition-of-done.md
-    │   ├── 测试策略-test-strategy.md
-    │   ├── 审查清单-code-review-checklist.md
-    │   └── 性能基线-performance-baseline.md
+    │   ├── 完成定义-definition-of-done.md       ← 代码写完 ≠ 完成
+    │   ├── 测试策略-test-strategy.md            ← 测什么、怎么测
+    │   ├── 审查清单-code-review-checklist.md    ← 审查逐项检查
+    │   └── 性能基线-performance-baseline.md     ← 性能基准
     ├── design/
     │   ├── adr/模板-架构决策记录-ADR-template.md
     │   └── rfc/模板-RFC设计文档-template.md
     └── contracts/
         └── 模板-接口契约-API-contract-template.md
+
+skills/                         ← 16 个通用工程 skill，开箱即用
+README.md
 ```
 
 <br>
@@ -280,7 +284,7 @@ Vault 兼容主流 AI 编程工具，skill 入口索引统一管理多端同步�
 | **Codex** | 强推理模型 | 架构思考、需求分析、代码审查、验收 |
 | **Cursor** | 均可 | 同上，按需配置 |
 
-> 📌 skill 入口索引（`软件工程/rules/能力入口索引-skill-entry-index.md`）统一管理三端的 skill 安装与同步。模型可自由替换，方法论不变。
+> 📌 skill 入口索引（`playbook/rules/能力入口索引-skill-entry-index.md`）统一管理三端的 skill 安装与同步。模型可自由替换，方法论不变。
 
 ### 团队规范
 
