@@ -1,8 +1,8 @@
 <p align="center">
   <br>
-  <h1 align="center">🧠 软件工程 · AI 辅助工作流套件</h1>
+  <h1 align="center">VibeToShip · AI 辅助软件工程工作流</h1>
   <p align="center">
-    <i>面向 Claude Code / Codex 的结构化软件工程流程体系<br>一个 Obsidian Vault，管住从需求到复盘的全部环节</i>
+    <i>把模糊想法沿着可审查、可验证的工程路径推进到交付<br>面向 Claude Code / Codex / Cursor，克隆即可使用</i>
   </p>
 </p>
 
@@ -34,7 +34,7 @@
 - [📦 项目结构](#structure)
 - [🔧 配套 Skill](#skills)
 - [🛡️ 配套体系](#quality)
-- [👤 作者 & 团队](#author)
+- [👤 创作者](#author)
 
 ---
 
@@ -57,7 +57,7 @@
 | 团队协作没有统一规范 | DoD、Commit 格式、PR 模板、分支规则全部内嵌 |
 | Claude Code 和 Codex 各管各的 | skill 入口索引统一管理多工具链 |
 
-> **一句话：** 克隆下来，Obsidian 打开，AI 不再是聊天工具，而是你的工程系统。
+> **一句话：** 从 Vibe 到 Ship——让 AI 不只负责写代码，也沿着完整工程流程把软件可靠地交付出去。
 
 <br>
 
@@ -68,7 +68,7 @@
 ## ⚡ 快速开始
 
 ```bash
-git clone https://gitcode.com/skyveo/obsidian-vault.git
+git clone https://github.com/zhuanglaihong/VibeToShip.git
 ```
 
 **三步跑通：**
@@ -303,19 +303,17 @@ Vault 兼容主流 AI 编程工具，skill 入口索引统一管理多端同步�
 
 <a id="author"></a>
 
-## 👤 作者 & 团队
+## 👤 创作者
 
 <p>
-  <b>高宇</b>  ·  gaoyussdut  ·  iHeadWater
+  <b>庄赖宏</b>  ·  zhuanglaihong
 </p>
 
-**大连理工大学 · 水资源与防洪研究所产学研联合团队**
+VibeToShip 来自对 AI 辅助开发的持续实践：AI 可以快速生成代码，但真正的软件交付还需要明确需求、合理分工、测试验证、独立审查、人工验收与复盘改进。
 
-作者长期深耕数据治理领域，曾参与世界级数据平台的核心组件研发，对大规模数据管线的可靠性、可维护性有深刻体感。同时横跨自动化控制、边缘计算、气象水文等多个学科方向，擅长将不同领域的工程方法论交叉融合。
+这个项目将这些环节整理成一套克隆即可使用的工作流，让个人开发者和团队能够更稳定地把想法从 Vibe 推进到 Ship。
 
-这套流程正是跨学科实战的产物——它不是坐在书桌前设计的，而是在一次次真实的系统崩盘、数据漂移、模型失控中被逼出来的。每一个 prompt 和 skill 背后，都对应着一个曾经踩过的深坑。本 Vault 中去掉了具体业务的影子，沉淀下来的是可复用的通用工程范式。
-
-> 🔗 团队主页：[gitcode.com/dlut-water](https://gitcode.com/dlut-water)  ·  [github.com/iHeadWater](https://github.com/iHeadWater)
+> GitHub：[github.com/zhuanglaihong](https://github.com/zhuanglaihong)
 
 <br>
 
@@ -323,4 +321,4 @@ Vault 兼容主流 AI 编程工具，skill 入口索引统一管理多端同步�
 
 ## 📄 License
 
-[MIT](LICENSE) © 高宇 · 大连理工大学水资源与防洪研究所产学研联合团队
+[MIT](LICENSE) © 庄赖宏
