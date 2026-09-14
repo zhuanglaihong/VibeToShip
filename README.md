@@ -2,7 +2,7 @@
   <br>
   <h1 align="center">VibeToShip · AI 辅助软件工程工作流</h1>
   <p align="center">
-    <i>把模糊想法沿着可审查、可验证的工程路径推进到交付<br>面向 Claude Code / Codex / Cursor，克隆即可使用</i>
+    <i>把模糊想法沿着可审查、可验证的工程路径推进到交付<br>面向 Claude Code/ Codex/ Cursor，适合个人开发者和小团队直接使用</i>
   </p>
 </p>
 
