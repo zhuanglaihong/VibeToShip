@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Obsidian-%23483699?style=for-the-badge&logo=obsidian&logoColor=white" alt="Obsidian">
+  <img src="https://img.shields.io/badge/Obsidian-Optional-483699?style=for-the-badge&logo=obsidian&logoColor=white" alt="Obsidian optional">
   <img src="https://img.shields.io/badge/Claude_Code-Compatible-2563EB?style=for-the-badge" alt="Claude Code">
   <img src="https://img.shields.io/badge/Codex-Compatible-10B981?style=for-the-badge" alt="Codex">
   <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License">
@@ -48,9 +48,9 @@
   <br><br>
 </p>
 
-| 😩 痛点 | ✅ 这个 Vault 的做法 |
+| 😩 痛点 | ✅ VibeToShip 的做法 |
 |----------|---------------------|
-| prompt 散落在聊天记录里，每次重新粘贴 | 12 个 prompt 文件在 Obsidian 中相互链接，点一下就到下一步 |
+| prompt 散落在聊天记录里，每次重新粘贴 | 12 个阶段入口和工程规则保存在仓库中，任何 Agent 都能按路径继续 |
 | AI 写完没人审，质量靠运气 | 代码审查清单逐项检查，最终验收全链路验证 |
 | 推理模型写代码、执行模型做架构，角色错配 | **推理模型想 → 执行模型做 → 推理模型审**，各司其职 |
 | 流程断在"代码写完" | 从需求到复盘 12 阶段闭环，每个阶段都有质量门禁 |
@@ -71,36 +71,40 @@
 git clone https://github.com/zhuanglaihong/VibeToShip.git
 ```
 
-**三步跑通：**
+### 方式一：直接交给编程 Agent（推荐）
 
-**1. 用 Obsidian 打开** — 将这个文件夹作为 Vault 打开
+不需要安装 Obsidian，也不需要记住阶段编号。将 VibeToShip 和你的目标项目同时打开，或在对话中给出 VibeToShip 的本地路径，然后告诉 Claude Code、Codex、Cursor 或其他能读取本地文件的编程 Agent：
 
-**2. 打开 `00-任务分流`** — 告诉 AI 你要做什么，系统自动判断该进哪个阶段
+```text
+请使用 VibeToShip 开发当前项目。
+先阅读 VibeToShip/playbook/prompts/00-任务分流-router.md、
+playbook/rules/模型分工-model-roles.md 和
+playbook/rules/能力入口索引-skill-entry-index.md，
+再按任务类型选择最小充分流程。
+```
 
-**3. 安装配套 skill** — 部分 prompt 依赖外部 skill。本 Vault 已自带 16 个通用工程 skill（位于 `skills/`），另外推荐安装：
+例如：
+
+```text
+使用 VibeToShip，为当前项目增加订单失败自动重试功能。
+```
+
+Agent 会先分流任务，再按需要进入需求澄清、计划、TDD、审查、验收或交接流程。
+
+### 方式二：用 Obsidian 浏览工作流（可选）
+
+如果你喜欢可视化浏览和笔记链接，将本仓库作为 Obsidian Vault 打开即可。Obsidian 只负责阅读和导航，不是使用 VibeToShip 的前提。
+
+### 方式三：按需安装配套 Skills（可选）
+
+本仓库自带 16 个通用工程 Skill（位于 `skills/`）。你可以直接让 Agent 阅读对应的 `SKILL.md`，或按所用工具的安装方式把需要的 Skill 加入本地环境；不必一次安装全部。另有可选的公共 Skill：
 
 ```bash
 # 公共 skill（grill-me、tdd、handoff、to-issues 等）
 npx skills@latest add mattpocock/skills
 ```
 
-> 详见 `playbook/rules/能力入口索引-skill-entry-index.md`
-
----
-
-### 使用示例
-
-在 Claude Code 或 Codex 中输入：
-
-```
-请帮我分流这个任务：我要做一个气象预报查询接口。
-前端在地图上选区域，查未来24小时的降水和温度。
-数据在 MinIO 的 Parquet 文件里，每天新增几百万行。
-```
-
-AI 会判断 → 进入 `01-需求夯实` → 追问边界 → 明确后进入 `02-计划拆解` → …… → 一路到 `10-PR收尾`。
-
-每个阶段 prompt 标注了**该用哪个模型**、**为什么**、**下一步去哪**。不必记流程，跟着链接走就行。
+> 各工具的能力映射见 `playbook/rules/能力入口索引-skill-entry-index.md`。
 
 <br>
 
@@ -121,7 +125,7 @@ AI 会判断 → 进入 `01-需求夯实` → 追问边界 → 明确后进入 `
 <p align="center">
   <b><code>推理模型想 → 执行模型做 → 推理模型审</code></b>
   <br><br>
-  <i>三步两模型，缺一不可。不是建议——是刻在 Vault 规则里的。</i>
+  <i>三步两模型，缺一不可。不是建议——是写进工作流规则里的。</i>
 </p>
 
 <br>
@@ -131,7 +135,7 @@ AI 会判断 → 进入 `01-需求夯实` → 追问边界 → 明确后进入 `
 | 🧭 需求分析 · 拆计划 · 审查 · 验收 · 复盘 | **强推理模型** | 擅长推理和架构，负责"想"和"审" |
 | ⚡ 代码实现 · TDD · 紧急修复 | **高效率模型** | 执行效率高、输出简洁，负责"做" |
 
-> 📌 Vault 默认以 GPT 5.5 + DeepSeek 为例做了预配置，但方法论本身模型无关。你可以替换为你用惯的任何模型组合——只要保持"强推理 → 高效率 → 强推理"的分工逻辑即可。每个 prompt 的 `model` 字段可自由修改。
+> 📌 VibeToShip 不绑定模型或工具。你可以替换为惯用的任意组合，只要保持“强推理 → 高效率 → 强推理”的分工逻辑即可。
 
 <br>
 
@@ -228,7 +232,7 @@ README.md
 
 ## 🔧 配套 Skill
 
-Vault 自带 **16 个通用工程 skill**，与 prompt 深度配套。
+VibeToShip 自带 **16 个通用工程 Skill**，与 Prompt 深度配套。
 
 > ⚠️ **注意：** 标 📝 的 skill 为通用模板，需结合你的项目做微调（如替换业务术语、端口号、文件路径等）。标 ✅ 的开箱即用。
 
@@ -278,7 +282,7 @@ Vault 自带 **16 个通用工程 skill**，与 prompt 深度配套。
 
 ### 多工具链
 
-Vault 兼容主流 AI 编程工具，skill 入口索引统一管理多端同步：
+VibeToShip 兼容主流 AI 编程工具，Skill 入口索引统一管理多端同步：
 
 | 工具 | 适合部署 | 典型用途 |
 |------|---------|---------|
@@ -286,7 +290,7 @@ Vault 兼容主流 AI 编程工具，skill 入口索引统一管理多端同步�
 | **Codex** | 强推理模型 | 架构思考、需求分析、代码审查、验收 |
 | **Cursor** | 均可 | 同上，按需配置 |
 
-> 📌 skill 入口索引（`playbook/rules/能力入口索引-skill-entry-index.md`）统一管理三端的 skill 安装与同步。模型可自由替换，方法论不变。
+> 📌 Skill 入口索引（`playbook/rules/能力入口索引-skill-entry-index.md`）统一管理三端的 Skill 安装与同步。模型可自由替换，方法论不变。
 
 ### 团队规范
 
@@ -306,14 +310,16 @@ Vault 兼容主流 AI 编程工具，skill 入口索引统一管理多端同步�
 ## 👤 创作者
 
 <p>
-  <b>庄赖宏</b>  ·  zhuanglaihong
+  <b>庄赖宏</b>  ·  zhuanglaihong  ·  iHeadWater
 </p>
 
-VibeToShip 来自对 AI 辅助开发的持续实践：AI 可以快速生成代码，但真正的软件交付还需要明确需求、合理分工、测试验证、独立审查、人工验收与复盘改进。
+**硕士研究生 · iHeadWater 团队成员**
 
-这个项目将这些环节整理成一套克隆即可使用的工作流，让个人开发者和团队能够更稳定地把想法从 Vibe 推进到 Ship。
+目前正处于从研究训练走向真实工程实践的阶段，持续探索如何借助 Claude Code、Codex 等 AI 编程助手，把想法更快地做成可运行的软件，同时不丢掉需求澄清、测试验证、代码审查和交付复盘这些工程基本功。
 
-> GitHub：[github.com/zhuanglaihong](https://github.com/zhuanglaihong)
+VibeToShip 就来自这些实践中的体感：AI 能很快写出第一版代码，但要把 Vibe 真正推到 Ship，仍需要一条清晰、可复用的工程路径。这个项目去掉具体业务场景，沉淀下适合个人开发者和小团队直接使用的工作流。
+
+> GitHub：[zhuanglaihong](https://github.com/zhuanglaihong) · 所属团队：[iHeadWater](https://github.com/iHeadWater)
 
 <br>
 
@@ -321,4 +327,4 @@ VibeToShip 来自对 AI 辅助开发的持续实践：AI 可以快速生成代�
 
 ## 📄 License
 
-[MIT](LICENSE) © 庄赖宏
+[MIT](LICENSE) © 庄赖宏 · 大连理工大学水资源与防洪研究所产学研联合团队
