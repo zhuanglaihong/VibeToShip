@@ -307,7 +307,7 @@ VibeToShip 兼容主流 AI 编程工具，Skill 入口索引统一管理多端�
 
 <a id="author"></a>
 
-## 👤 创作者
+## 👤 开发者
 
 <p>
   <b>庄赖宏</b>  ·  zhuanglaihong  ·  iHeadWater
